@@ -1,32 +1,17 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { LeadForm } from './LeadForm';
 
 export function HeroSection() {
   return (
-    <section className="relative pt-4 pb-16 sm:pt-6 sm:pb-20 overflow-hidden min-h-[600px] lg:min-h-[700px] flex items-center isolate bg-[#080808]">
+    <section className="relative pt-8 pb-16 sm:pt-12 sm:pb-20 overflow-hidden min-h-[600px] lg:min-h-[700px] flex items-center isolate bg-[#080808]">
       {/* Iluminação Ambiente Escura Premium (Laranja / Âmbar Sutil) */}
       <div className="pointer-events-none absolute -top-36 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-[#FF6A00]/10 blur-[130px] rounded-full -z-10" />
       <div className="pointer-events-none absolute top-1/2 -right-24 w-[400px] h-[400px] bg-[#FF6A00]/5 blur-[140px] rounded-full -z-10" />
       <div className="pointer-events-none absolute bottom-0 left-0 w-[350px] h-[350px] bg-[#FF6A00]/4 blur-[120px] rounded-full -z-10" />
 
-      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-4 sm:pt-6">
-        {/* Logotipo Oficial FA no topo */}
-        <div className="mb-6 sm:mb-8">
-          <div className="relative w-32 sm:w-40 h-7 sm:h-8">
-            <Image
-              src="/logo-white.png"
-              alt="Fazendo Acontecer — Marketing & Vendas"
-              fill
-              className="object-contain object-left"
-              priority
-              unoptimized
-            />
-          </div>
-        </div>
-
+      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* COLUNA ESQUERDA: Promessa, Contexto e Autoridade */}
           <div className="lg:col-span-7 flex flex-col justify-center space-y-5 sm:space-y-6">
