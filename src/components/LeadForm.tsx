@@ -46,7 +46,7 @@ export function LeadForm({
   id = 'formulario-captura',
   className = '',
   sourceContext,
-  ctaText = 'QUERO TRIPLICAR A PERFORMANCE DO MEU COMERCIAL',
+  ctaText = 'ESTRUTURAR MEU COMERCIAL',
 }: LeadFormProps) {
   // Controle de etapas (1 = Dados Pessoais / Contato, 2 = Dados da Empresa)
   const [step, setStep] = useState<1 | 2>(1);
@@ -363,7 +363,7 @@ export function LeadForm({
                     type="button"
                     onClick={handleNextStep}
                     size="full"
-                    text="AVANÇAR PARA A ETAPA 2"
+                    text="ESTRUTURAR MEU COMERCIAL"
                   />
                 </div>
               </div>
