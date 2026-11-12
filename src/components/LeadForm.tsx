@@ -200,23 +200,23 @@ export function LeadForm({
     <>
       <div
         id={id}
-        className={`relative w-full rounded-2xl bg-white border border-zinc-200/90 shadow-2xl shadow-black/40 p-6 sm:p-7 transition-all duration-300 ${className}`}
+        className={`relative w-full rounded-2xl bg-fa-card border border-fa-border shadow-glow-card p-6 sm:p-7 card-glow-border transition-all duration-300 ${className}`}
       >
         {/* Glow sutil no topo do card */}
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#FF6A00] to-transparent rounded-t-2xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-[#FF6A00]/40 to-transparent" />
 
         {isSuccess ? (
           <div className="py-8 text-center space-y-4 animate-fade-in">
-            <div className="w-14 h-14 mx-auto rounded-full bg-orange-50 border border-[#FF6A00]/40 flex items-center justify-center text-[#FF6A00]">
+            <div className="w-14 h-14 mx-auto rounded-full bg-[#FF6A00]/10 border border-[#FF6A00]/30 flex items-center justify-center text-[#FF6A00]">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight">
+            <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
               Solicitação recebida com sucesso!
             </h3>
-            <p className="text-sm text-zinc-600 max-w-sm mx-auto leading-relaxed">
+            <p className="text-sm text-fa-text-muted max-w-sm mx-auto leading-relaxed">
               Recebemos seus dados e nossa equipe de especialistas comerciais entrará em contato para analisar a estrutura do seu negócio.
             </p>
-            <div className="pt-4 border-t border-zinc-200">
+            <div className="pt-4 border-t border-fa-border">
               <button
                 type="button"
                 onClick={() => {
@@ -230,7 +230,7 @@ export function LeadForm({
                   setFaturamento('');
                   setGargalo('');
                 }}
-                className="text-xs text-[#FF6A00] hover:text-zinc-900 font-semibold underline transition-colors"
+                className="text-xs text-[#FF6A00] hover:text-white underline transition-colors"
               >
                 Enviar nova resposta
               </button>
@@ -246,35 +246,35 @@ export function LeadForm({
                     className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold transition-all ${
                       step === 1
                         ? 'bg-[#FF6A00] text-black font-extrabold shadow-sm shadow-[#FF6A00]/40'
-                        : 'bg-zinc-100 text-zinc-600 border border-zinc-300'
+                        : 'bg-[#FF6A00]/20 text-[#FF6A00]'
                     }`}
                   >
                     1
                   </span>
-                  <span className={`text-xs font-semibold ${step === 1 ? 'text-zinc-900' : 'text-zinc-500'}`}>
+                  <span className={`text-xs font-semibold ${step === 1 ? 'text-white' : 'text-fa-text-muted'}`}>
                     Contato
                   </span>
-                  <span className="text-zinc-300 text-xs">/</span>
+                  <span className="text-fa-text-subtle text-xs">/</span>
                   <span
                     className={`inline-flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold transition-all ${
                       step === 2
                         ? 'bg-[#FF6A00] text-black font-extrabold shadow-sm shadow-[#FF6A00]/40'
-                        : 'bg-zinc-100 text-zinc-500 border border-zinc-300'
+                        : 'bg-white/10 text-fa-text-subtle'
                     }`}
                   >
                     2
                   </span>
-                  <span className={`text-xs font-semibold ${step === 2 ? 'text-zinc-900' : 'text-zinc-500'}`}>
+                  <span className={`text-xs font-semibold ${step === 2 ? 'text-white' : 'text-fa-text-muted'}`}>
                     Empresa
                   </span>
                 </div>
-                <span className="text-[10px] font-bold text-[#FF6A00] bg-orange-50 px-2.5 py-0.5 rounded-full border border-[#FF6A00]/30 tracking-wider uppercase">
+                <span className="text-[10px] font-bold text-[#FF6A00] bg-[#1A0E05] px-2.5 py-0.5 rounded-full border border-[#FF6A00]/30 tracking-wider uppercase">
                   Etapa {step} de 2
                 </span>
               </div>
 
               {/* Barra de Progresso Suave */}
-              <div className="w-full bg-zinc-100 border border-zinc-200 h-1.5 rounded-full overflow-hidden">
+              <div className="w-full bg-[#1A1A1E] h-1.5 rounded-full overflow-hidden">
                 <div
                   className="bg-gradient-to-r from-[#FF6A00] to-[#FFA048] h-full transition-all duration-300 ease-out"
                   style={{ width: step === 1 ? '50%' : '100%' }}
@@ -284,10 +284,10 @@ export function LeadForm({
 
             {/* Cabeçalho da Etapa Atual */}
             <div className="mb-2">
-              <h3 className="text-lg sm:text-xl font-bold tracking-tight text-zinc-900">
+              <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white">
                 {step === 1 ? 'Vamos estruturar seu comercial?' : 'Sobre a sua empresa'}
               </h3>
-              <p className="text-xs text-zinc-500 mt-0.5 leading-snug">
+              <p className="text-xs text-fa-text-muted mt-0.5 leading-snug">
                 {step === 1
                   ? 'Preencha seus dados de contato para darmos início.'
                   : 'Conte sobre a operação para personalizarmos a estruturação.'}
@@ -296,8 +296,8 @@ export function LeadForm({
 
             {/* Mensagem de Erro amigável */}
             {errorMessage && (
-              <div className="flex items-start gap-2 p-2.5 rounded-lg bg-red-50 border border-red-200 text-red-700 text-xs animate-fade-in">
-                <AlertCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2 p-2.5 rounded-lg bg-red-950/40 border border-red-500/40 text-red-200 text-xs animate-fade-in">
+                <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                 <span>{errorMessage}</span>
               </div>
             )}
@@ -307,7 +307,7 @@ export function LeadForm({
               <div className="space-y-3.5 animate-fade-in">
                 {/* Campo 1: Nome completo */}
                 <div className="space-y-1">
-                  <label htmlFor="lead-nome" className="block text-xs font-semibold text-zinc-800">
+                  <label htmlFor="lead-nome" className="block text-xs font-medium text-fa-text">
                     Nome completo <span className="text-[#FF6A00]">*</span>
                   </label>
                   <input
@@ -318,13 +318,13 @@ export function LeadForm({
                     placeholder="Seu nome e sobrenome"
                     value={nome}
                     onChange={(e) => setNome(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50 border border-zinc-300 text-zinc-900 text-sm placeholder:text-zinc-400 focus:outline-none focus:bg-white focus:border-[#FF6A00] focus:ring-2 focus:ring-[#FF6A00]/20 transition-all"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-fa-bg border border-fa-border text-white text-sm placeholder:text-fa-text-subtle focus:outline-none focus:border-[#FF6A00] focus:ring-1 focus:ring-[#FF6A00] transition-all"
                   />
                 </div>
 
                 {/* Campo 2: WhatsApp com DDD */}
                 <div className="space-y-1">
-                  <label htmlFor="lead-whatsapp" className="block text-xs font-semibold text-zinc-800">
+                  <label htmlFor="lead-whatsapp" className="block text-xs font-medium text-fa-text">
                     WhatsApp com DDD <span className="text-[#FF6A00]">*</span>
                   </label>
                   <input
@@ -336,13 +336,13 @@ export function LeadForm({
                     placeholder="(DDD) 99999-9999"
                     value={whatsapp}
                     onChange={handlePhoneChange}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50 border border-zinc-300 text-zinc-900 text-sm placeholder:text-zinc-400 focus:outline-none focus:bg-white focus:border-[#FF6A00] focus:ring-2 focus:ring-[#FF6A00]/20 transition-all"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-fa-bg border border-fa-border text-white text-sm placeholder:text-fa-text-subtle focus:outline-none focus:border-[#FF6A00] focus:ring-1 focus:ring-[#FF6A00] transition-all"
                   />
                 </div>
 
                 {/* Campo 3: Email */}
                 <div className="space-y-1">
-                  <label htmlFor="lead-email" className="block text-xs font-semibold text-zinc-800">
+                  <label htmlFor="lead-email" className="block text-xs font-medium text-fa-text">
                     E-mail profissional <span className="text-[#FF6A00]">*</span>
                   </label>
                   <input
@@ -353,7 +353,7 @@ export function LeadForm({
                     placeholder="seu@empresa.com.br"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50 border border-zinc-300 text-zinc-900 text-sm placeholder:text-zinc-400 focus:outline-none focus:bg-white focus:border-[#FF6A00] focus:ring-2 focus:ring-[#FF6A00]/20 transition-all"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-fa-bg border border-fa-border text-white text-sm placeholder:text-fa-text-subtle focus:outline-none focus:border-[#FF6A00] focus:ring-1 focus:ring-[#FF6A00] transition-all"
                   />
                 </div>
 
@@ -374,7 +374,7 @@ export function LeadForm({
               <div className="space-y-3 animate-fade-in">
                 {/* Campo 1: Nome ou Instagram da Empresa */}
                 <div className="space-y-1">
-                  <label htmlFor="lead-empresa" className="block text-xs font-semibold text-zinc-800">
+                  <label htmlFor="lead-empresa" className="block text-xs font-medium text-fa-text">
                     Nome ou Instagram da Empresa <span className="text-[#FF6A00]">*</span>
                   </label>
                   <input
@@ -385,13 +385,13 @@ export function LeadForm({
                     value={empresa}
                     onChange={(e) => setEmpresa(e.target.value)}
                     disabled={isLoading}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50 border border-zinc-300 text-zinc-900 text-sm placeholder:text-zinc-400 focus:outline-none focus:bg-white focus:border-[#FF6A00] focus:ring-2 focus:ring-[#FF6A00]/20 transition-all"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-fa-bg border border-fa-border text-white text-sm placeholder:text-fa-text-subtle focus:outline-none focus:border-[#FF6A00] focus:ring-1 focus:ring-[#FF6A00] transition-all"
                   />
                 </div>
 
                 {/* Campo 2: Segmento */}
                 <div className="space-y-1">
-                  <label htmlFor="lead-segmento" className="block text-xs font-semibold text-zinc-800">
+                  <label htmlFor="lead-segmento" className="block text-xs font-medium text-fa-text">
                     Segmento de atuação <span className="text-[#FF6A00]">*</span>
                   </label>
                   <div className="relative">
@@ -401,18 +401,18 @@ export function LeadForm({
                       value={segmento}
                       onChange={(e) => setSegmento(e.target.value)}
                       disabled={isLoading}
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50 border border-zinc-300 text-zinc-900 text-sm focus:outline-none focus:bg-white focus:border-[#FF6A00] focus:ring-2 focus:ring-[#FF6A00]/20 transition-all appearance-none cursor-pointer"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-fa-bg border border-fa-border text-white text-sm focus:outline-none focus:border-[#FF6A00] focus:ring-1 focus:ring-[#FF6A00] transition-all appearance-none cursor-pointer"
                     >
-                      <option value="" disabled className="text-zinc-400 bg-white">
+                      <option value="" disabled className="text-fa-text-subtle bg-fa-card">
                         Selecione o segmento...
                       </option>
                       {SEGMENTO_OPTIONS.map((opt) => (
-                        <option key={opt} value={opt} className="bg-white text-zinc-900 py-1">
+                        <option key={opt} value={opt} className="bg-fa-card text-white py-1">
                           {opt}
                         </option>
                       ))}
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-zinc-500">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-fa-text-muted">
                       <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
                         <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                       </svg>
@@ -422,7 +422,7 @@ export function LeadForm({
 
                 {/* Campo 3: Faturamento Médio Mensal */}
                 <div className="space-y-1">
-                  <label htmlFor="lead-faturamento" className="block text-xs font-semibold text-zinc-800">
+                  <label htmlFor="lead-faturamento" className="block text-xs font-medium text-fa-text">
                     Faturamento Médio Mensal <span className="text-[#FF6A00]">*</span>
                   </label>
                   <div className="relative">
@@ -432,18 +432,18 @@ export function LeadForm({
                       value={faturamento}
                       onChange={(e) => setFaturamento(e.target.value)}
                       disabled={isLoading}
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50 border border-zinc-300 text-zinc-900 text-sm focus:outline-none focus:bg-white focus:border-[#FF6A00] focus:ring-2 focus:ring-[#FF6A00]/20 transition-all appearance-none cursor-pointer"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-fa-bg border border-fa-border text-white text-sm focus:outline-none focus:border-[#FF6A00] focus:ring-1 focus:ring-[#FF6A00] transition-all appearance-none cursor-pointer"
                     >
-                      <option value="" disabled className="text-zinc-400 bg-white">
+                      <option value="" disabled className="text-fa-text-subtle bg-fa-card">
                         Selecione o faturamento médio...
                       </option>
                       {FATURAMENTO_OPTIONS.map((opt) => (
-                        <option key={opt} value={opt} className="bg-white text-zinc-900 py-1">
+                        <option key={opt} value={opt} className="bg-fa-card text-white py-1">
                           {opt}
                         </option>
                       ))}
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-zinc-500">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-fa-text-muted">
                       <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
                         <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                       </svg>
@@ -453,7 +453,7 @@ export function LeadForm({
 
                 {/* Campo 4: Maior Gargalo */}
                 <div className="space-y-1">
-                  <label htmlFor="lead-gargalo" className="block text-xs font-semibold text-zinc-800">
+                  <label htmlFor="lead-gargalo" className="block text-xs font-medium text-fa-text">
                     Maior Gargalo Comercial <span className="text-[#FF6A00]">*</span>
                   </label>
                   <div className="relative">
@@ -463,18 +463,18 @@ export function LeadForm({
                       value={gargalo}
                       onChange={(e) => setGargalo(e.target.value)}
                       disabled={isLoading}
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-50 border border-zinc-300 text-zinc-900 text-sm focus:outline-none focus:bg-white focus:border-[#FF6A00] focus:ring-2 focus:ring-[#FF6A00]/20 transition-all appearance-none cursor-pointer"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-fa-bg border border-fa-border text-white text-sm focus:outline-none focus:border-[#FF6A00] focus:ring-1 focus:ring-[#FF6A00] transition-all appearance-none cursor-pointer"
                     >
-                      <option value="" disabled className="text-zinc-400 bg-white">
+                      <option value="" disabled className="text-fa-text-subtle bg-fa-card">
                         Selecione o principal gargalo...
                       </option>
                       {GARGALO_OPTIONS.map((opt) => (
-                        <option key={opt} value={opt} className="bg-white text-zinc-900 py-1">
+                        <option key={opt} value={opt} className="bg-fa-card text-white py-1">
                           {opt}
                         </option>
                       ))}
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-zinc-500">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-fa-text-muted">
                       <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
                         <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
                       </svg>
@@ -499,7 +499,7 @@ export function LeadForm({
                     type="button"
                     onClick={handlePrevStep}
                     disabled={isLoading}
-                    className="inline-flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-900 transition-colors cursor-pointer py-1 font-medium"
+                    className="inline-flex items-center gap-1.5 text-xs text-fa-text-muted hover:text-white transition-colors cursor-pointer py-1"
                   >
                     <ArrowLeft className="w-3.5 h-3.5" />
                     <span>Voltar para a Etapa 1</span>
@@ -510,16 +510,16 @@ export function LeadForm({
 
             {/* Microcopy e LGPD */}
             <div className="pt-1 text-center">
-              <p className="text-[11px] text-zinc-500 leading-relaxed">
+              <p className="text-[11px] text-fa-text-muted leading-relaxed">
                 Seus dados serão utilizados para contato sobre esta solução.
               </p>
-              <div className="mt-1.5 flex items-center justify-center gap-1.5 text-[11px] text-zinc-400">
-                <Shield className="w-3 h-3 text-[#FF6A00]" />
+              <div className="mt-1.5 flex items-center justify-center gap-1.5 text-[11px] text-fa-text-subtle">
+                <Shield className="w-3 h-3 text-[#FF6A00]/80" />
                 <span>Ambiente seguro sob a LGPD.</span>
                 <button
                   type="button"
                   onClick={() => setShowPrivacyModal(true)}
-                  className="text-zinc-600 hover:text-[#FF6A00] underline font-medium transition-colors"
+                  className="text-fa-text-muted hover:text-[#FF6A00] underline transition-colors"
                 >
                   Política de Privacidade
                 </button>
